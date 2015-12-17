@@ -4,10 +4,14 @@
   "description": "A web interface to show and test uruguayan api's",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "dev": "node server.js",
     "compile": "scripts/deploy.sh"
   },
-  "author": "Gabriel Chertok <gchertok@ingsw.com>",
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:cherta/apis-uy.git"
+  },
+  "author": "Gabriel Chertok <gchertok@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.1",
