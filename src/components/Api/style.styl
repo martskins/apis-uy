@@ -1,0 +1,37 @@
+@import 'jeet'
+
+.api
+
+  .title
+    font-size: 24px
+    line-height: 32px
+    padding-top: 16px
+    margin-top: 0
+    letter-spacing: 0
+    font-weight: 200
+
+  .sub-title
+    font-size: 18px
+    font-weight: 200
+
+  code
+    overflow: hidden
+
+  .loading-container
+    text-align: center
+
+  +below(rupture.desktop-cutoff)
+    .configuration, .result
+      col(1)
+
+  +between(rupture.desktop-cutoff, 1280px)
+    .configuration
+      col(2/3)
+    .result
+      col(1/3)
+
+  +above(1280px)
+    .configuration
+      col(1/2)
+    .result
+      col(1/2)
