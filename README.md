@@ -26,13 +26,6 @@ versiona en el branch `gh-pages` del repositorio y queda disponible en [http://c
 
 ## ToDo
 
-* Separar mejor las responsabilidades de `src/components/Api`.
-* Separar mejor las responsabilidades de `src/containers/Root`
-* Aceptar en `src/components/Api` opciones como **jsonp** y dentro de los
-parámetros cuales son parte del query string y cuales parámetros normales de un
-request.
-* Hacer el chrome del sitio responsive haciendo que en tablet y mobile el menú
-se oculte.
 * Hacer una cli para crear api's nuevas algo así como
 `npm run new api --component-name Weather --menu-name Clima` que genere el
 esqueleto básico.
