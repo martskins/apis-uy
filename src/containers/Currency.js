@@ -10,7 +10,8 @@ export default class Currency extends Component {
       <Api title="Tipo de Cambio"
         url="http://webservice.solcre.com/cotizacion"
         description="Lorem Ipsum"
-        params={params} />
+        params={params}
+        jsonp={true} />
     )
   }
 }
