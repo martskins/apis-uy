@@ -18,6 +18,7 @@ Uruguay.
 * `git clone git@github.com:cherta/apis-uy.git`
 * `cd apis-uy`
 * `npm install`
+* `npm run dev`
 
 ## Hacer deploy
 
