@@ -8,9 +8,9 @@
     "compile": "node scripts/build.js",
     "deploy": "scripts/deploy.sh"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "git@github.com:cherta/apis-uy.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cherta/apis-uy.git"
   },
   "author": "Gabriel Chertok <gchertok@gmail.com>",
   "license": "MIT",
@@ -22,8 +22,12 @@
     "react": "^0.14.3",
     "react-css-modules": "^3.6.3",
     "react-dom": "^0.14.3",
-    "react-router": "1.0.2",
+    "react-redux": "^4.0.2",
+    "react-router": "^1.0.2",
     "react-tap-event-plugin": "^0.2.1",
+    "redux": "^3.0.5",
+    "redux-router": "^1.0.0-beta4",
+    "redux-thunk": "^1.0.2",
     "reqwest": "^2.0.5",
     "rupture": "^0.6.1"
   },
@@ -42,7 +46,10 @@
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.4.2",
+    "redux-devtools": "^2.1.5",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-hot-middleware": "^2.6.0"
   }
 }

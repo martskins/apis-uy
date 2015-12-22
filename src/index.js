@@ -2,8 +2,12 @@ import 'babel-core/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Route, Router } from 'react-router';
+import { Provider } from 'react-redux'
+import { ReduxRouter } from 'redux-router';
 import Root from './containers/Root'
-import Currency from './containers/Currency'
+import Page from './containers/Page'
+import configureStore from './store/configureStore'
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 //Needed for onTouchTap
@@ -12,11 +16,19 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
+const store = configureStore()
+
 render(
-  <Router>
-    <Route path="/" component={Root}>
-      <Route path="currency" component={Currency} />
-    </Route>
-  </Router>,
+
+  <div>
+    <Provider store={store}>
+      <Root>
+        <Page/>
+      </Root>
+    </Provider>
+    <DebugPanel top right bottom>
+      <DevTools store={store} monitor={LogMonitor} />
+    </DebugPanel>
+  </div>,
   document.getElementById('root')
 )
