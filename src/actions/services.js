@@ -1,4 +1,3 @@
-import { pushState } from 'redux-router';
 import reqwest from 'reqwest'
 
 export function showDefinition(serviceId) {
@@ -17,8 +16,8 @@ export function updateHeaderValue(serviceId, name, value) {
   return { type: 'UPDATE_HEADER_VALUE', serviceId: serviceId, name: name, value: value }
 }
 
-export function updateHeaderVisibility(serviceId, name, disabled) {
-  return { type: 'UPDATE_HEADER_VISIBILITY', serviceId: serviceId, name: name, disabled: disabled }
+export function updateHeaderVisibility(serviceId, name) {
+  return { type: 'UPDATE_HEADER_VISIBILITY', serviceId: serviceId, name: name }
 }
 
 export function queryService() {
