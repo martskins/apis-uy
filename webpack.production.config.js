@@ -1,6 +1,5 @@
 var path = require('path')
 var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var rupture = require('rupture')
 var jeet = require('jeet')
@@ -16,6 +15,11 @@ module.exports = {
   stylus: {
     use: [rupture(), jeet()]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      NODE_ENV: process.env.NODE_ENV
+    })
+  ],
   module: {
     loaders: [{
       test: /\.js$/,

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as ServiceActions from '../../actions/services'
 import { AppBar, List, ListItem, IconButton, FontIcon, LeftNav } from 'material-ui'
 import style from './style.styl'
 
-export default class AppBarAndMenu extends Component {
+class AppBarAndMenu extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -28,11 +31,18 @@ export default class AppBarAndMenu extends Component {
 
   render() {
     const { showMenu } = this.state
+    const { services, actions } = this.props
     const list = (
       <List className="menu">
-        <ListItem onTouchTap={()=> this.navigate('/currency')}
-          primaryText="Tipo de Cambio"
-          leftIcon={<FontIcon className="material-icons">attach_money</FontIcon>}/>
+        {services.map((service) => {
+          return(
+            <ListItem key={service.id}
+              onTouchTap={()=> actions.showDefinition(service.id)}
+              primaryText={service.name}
+              leftIcon={<FontIcon className="material-icons">{service.icon}</FontIcon>}/>
+          )
+        })}
+
       </List>
     )
     const leftNav = (
@@ -59,3 +69,20 @@ export default class AppBarAndMenu extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    services: state.services.list
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ServiceActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppBarAndMenu)

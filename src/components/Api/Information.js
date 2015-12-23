@@ -14,7 +14,6 @@ export default class Information extends Component {
         <TextField
           floatingLabelText="URL del Servicio"
           value={url}
-          disabled={true}
           style={{width: "100%"}}/>
       </div>
     )
