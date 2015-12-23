@@ -1,34 +1,49 @@
 # API's.uy
 
-Uruguay no tiene un listado oficial de API's a las cuales pedir cosas como el
-estado del tiempo, el valor de la moneda, etc.
+[Español](README.es.md)
 
-Este sitio es un directorio que intenta reunir todas las API's de interés para
-Uruguay.
+Uruguay has no official API's listing, one common thing I've noticed is
+that developers had come with a variety range of semi-public API's to support
+their apps.
 
-## Conozco una API cómo la listo?
+This listing is an effort to aggregate all the sparse information and allow
+developers to test other developers API's without needing to use `curl`,
+`postman` or anything else.
 
-* Cada API tiene su propia página dentro de `src/containers`. Crear una página nueva para la api que se quiera listar.
-* Usar el component `src/components/Api.js` dentro de esta página
-* Linkear a la misma en la botonera dentro de `src/containers/Root.js`.
+## Installing locally
 
-## Hacerlo andar local
-
-* Instalar node & npm
-* `git clone git@github.com:cherta/apis-uy.git`
+* Clone this repo: `git clone git@github.com:cherta/apis-uy.git`
 * `cd apis-uy`
-* `npm install`
-* `npm run dev`
+* Install dependencies with: `npm install`
+* Run the dev server with: `npm run dev`
 
-## Hacer deploy
+## How to list my API
 
-Usando el comando `npm run compile` se genera una carpeta `dist` que luego se
-versiona en el branch `gh-pages` del repositorio y queda disponible en [http://cherta.github.io/apis-uy](http://cherta.github.io/apis-uy).
+Adding an API is fairly easy just fork this repo, make it work locally using the
+previous instructions and add a new entry on
+[src/config/services.js](src/config/services.js).
 
-## ToDo
+```js
+{
+  "id": 2, //Subsecuent id
+  "name": "Tipo de Cambio", //Name that appears on the left navigation bar and as a title of the service
+  "description": "Lorem Ipsum", //Description that appears on below the title
+  "slug": "currency", //The url slug (not in use now)
+  "url": "http://webservice.solcre.com/cotizacion", //The API url
+  "type": "jsonp", //The API request type, can be `jsonp` or `rest`
+  "icon": "attach_money", //The icon to use on the left bar, can pick any of these: https://www.google.com/design/icons/
+  "params": [ //A list of object with name, value and initial state (disabled or enabled)
+    { "name": "backdoor", "value": "letmein", "disabled": false }
+  ],
+  "headers": [ //A list of object with name, value and initial state (disabled or enabled)
+  ],
+  "method": "GET", //The API HTTP method
+  "result": null //Leave this null for now
+}
+```
 
-* Hacer una cli para crear api's nuevas algo así como
-`npm run new api --component-name Weather --menu-name Clima` que genere el
-esqueleto básico.
-* Configurar un CI para hacer deploy una vez que un PR esté aceptado.
-* Script de deploy
+Once you test your repo locally and everything is working submit a pull request.
+
+## How to deploy it?
+
+The deploy is really simple, just run `npm run deploy` this will generate a `dist` folder and commit the files to the `gh-pages` branch. The public site can be found at: [http://cherta.github.io/apis-uy](http://cherta.github.io/apis-uy).
