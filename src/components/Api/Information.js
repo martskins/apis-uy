@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { TextField } from 'material-ui'
+import { TextField, Styles } from 'material-ui'
+const { Colors } = Styles
 
 export default class Information extends Component {
 
@@ -14,6 +15,7 @@ export default class Information extends Component {
         <TextField
           floatingLabelText="URL del Servicio"
           value={url}
+          underlineFocusStyle={{borderColor: Colors.grey300}}
           style={{width: "100%"}}/>
       </div>
     )

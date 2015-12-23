@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { TextField, FontIcon, IconButton } from 'material-ui'
+import { TextField, FontIcon, IconButton, Styles } from 'material-ui'
+const { Colors } = Styles
 import style from './style.styl'
 
 export default class Param extends Component {
@@ -12,6 +13,7 @@ export default class Param extends Component {
             hintText="Name"
             className="name"
             value={this.props.name}
+            underlineFocusStyle={{borderColor: Colors.grey300}}
             disabled={this.props.disabled} />
         </div>
 

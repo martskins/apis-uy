@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import { SelectField } from 'material-ui'
+import { SelectField, TextField, Styles } from 'material-ui'
+const { Colors } = Styles
 
 export default class Method extends Component {
 
   render() {
-    const { method, menuItems, onChange } = this.props
+    const { method, menuItems } = this.props
     return (
       <div>
         <h3 className="sub-title">Método</h3>
 
-        <SelectField
-          value={method}
-          onChange={onChange}
+        <TextField
           hintText="Method"
-          menuItems={menuItems} />
+          value={method}
+          underlineFocusStyle={{borderColor: Colors.grey300}} />
       </div>
     )
   }
