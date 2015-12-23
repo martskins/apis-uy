@@ -1,5 +1,7 @@
 # API's.uy
 
+[![Build Status](https://travis-ci.org/cherta/apis-uy.svg?branch=add-tests)](https://travis-ci.org/cherta/apis-uy)
+
 [Español](README.es.md)
 
 Uruguay has no official API's listing, one common thing I've noticed is
