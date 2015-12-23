@@ -1,6 +1,6 @@
 #!/bin/sh
 rm -rf ./dist
-node ./scripts/build.js
+npm run build
 cd ./dist && \
 git init . && \
 git add . && \

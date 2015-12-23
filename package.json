@@ -4,9 +4,9 @@
   "description": "A web interface to show and test uruguayan api's",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "compile": "node scripts/build.js",
-    "deploy": "scripts/deploy.sh"
+    "dev": "NODE_ENV=development node server.js",
+    "build": "NODE_ENV=production node scripts/build.js",
+    "deploy": "NODE_ENV=production scripts/deploy.sh"
   },
   "repository": {
     "type": "git",

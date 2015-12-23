@@ -26,9 +26,11 @@ render(
         <Page/>
       </Root>
     </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
-    </DebugPanel>
+    {process.env.NODE_ENV === 'development'
+      ? <DebugPanel top right bottom>
+          <DevTools store={store} monitor={LogMonitor} />
+        </DebugPanel>
+      : null}
   </div>,
   document.getElementById('root')
 )
