@@ -1,6 +1,6 @@
 # API's.uy
 
-[![Build Status](https://travis-ci.org/cherta/apis-uy.svg?branch=add-tests)](https://travis-ci.org/cherta/apis-uy)
+[![Build Status](https://travis-ci.org/cherta/apis-uy.svg)](https://travis-ci.org/cherta/apis-uy)
 
 [Español](README.es.md)
 
