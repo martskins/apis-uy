@@ -1,5 +1,7 @@
 # API's.uy
 
+[![Build Status](https://travis-ci.org/cherta/apis-uy.svg?branch=add-tests)](https://travis-ci.org/cherta/apis-uy)
+
 [English](README.md)
 
 Como Uruguay no tiene un registro oficial de API's cada

@@ -1,9 +1,7 @@
-import 'babel-core/polyfill'
+// import 'babel-core/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Router } from 'react-router';
 import { Provider } from 'react-redux'
-import { ReduxRouter } from 'redux-router';
 import Root from './containers/Root'
 import Page from './containers/Page'
 import configureStore from './store/configureStore'
