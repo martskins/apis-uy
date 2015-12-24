@@ -1,6 +1,5 @@
 import test from 'tape'
 import * as ServiceActions from '../../src/actions/services'
-import initialState from '../../src/config/services'
 
 test('showDefinitions', function (t) {
   t.plan(1);
