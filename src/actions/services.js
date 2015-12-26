@@ -20,10 +20,9 @@ export function updateHeaderVisibility(serviceId, name) {
   return { type: 'UPDATE_HEADER_VISIBILITY', serviceId: serviceId, name: name }
 }
 
-export function queryService() {
+export function queryService(serviceId) {
   return (dispatch, getState) => {
-    const serviceId = getState().services.current
-    dispatch({type: 'SHOW_LOADING', serviceId: serviceId})
+    dispatch({ type: 'QUERYING_SERVICE', serviceId: serviceId })
     const service = getState().services.list.filter((service) => service.id === serviceId)[0]
     request(service).always((data) => {
       dispatch({ type: 'SHOW_RESULT', serviceId: serviceId, jsonResponse: data })

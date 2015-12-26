@@ -5,12 +5,18 @@ import rootReducer from '../reducers'
 
 export default function configureStore(initialState) {
 
-  const finalCreateStore = compose(
-    applyMiddleware(thunk),
-    devTools(),
-    // Lets you write ?debug_session=<name> in address bar to persist debug sessions
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-  )(createStore)
+  let finalCreateStore = null
+
+  if(process.env.NODE_ENV === 'development') {
+    finalCreateStore = compose(
+      applyMiddleware(thunk),
+      devTools(),
+      // Lets you write ?debug_session=<name> in address bar to persist debug sessions
+      persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+    )(createStore)
+  } else {
+    finalCreateStore = compose(applyMiddleware(thunk))(createStore)
+  }
 
   const store = finalCreateStore(rootReducer, initialState)
 

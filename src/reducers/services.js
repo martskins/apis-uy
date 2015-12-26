@@ -8,8 +8,8 @@ export default function services (state = initialState, action) {
     case 'UPDATE_PARAM_VISIBILITY':
     case 'UPDATE_HEADER_VALUE':
     case 'UPDATE_HEADER_VISIBILITY':
+    case 'QUERYING_SERVICE':
     case 'SHOW_RESULT':
-    case 'SHOW_LOADING':
       return {...state, list: list(state.list, action)}
     default:
       return state
@@ -41,7 +41,7 @@ function list (state, action) {
         }
         return service
       })
-    case 'SHOW_LOADING':
+    case 'QUERYING_SERVICE':
       return state.map((service) => {
         if(service.id === action.serviceId) {
           return {...service, result: 'loading'}

@@ -20,7 +20,7 @@ class Page extends Component {
           onParamToggleVisibility={k => actions.updateParamVisibility(service.id, k)}
           onHeaderChange={(k, v) => actions.updateHeaderValue(service.id, k, v)}
           onHeaderToggleVisibility={k => actions.updateHeaderVisibility(service.id, k)}
-          onApiRequest={actions.queryService} />
+          onApiRequest={() => actions.queryService(service.id)} />
       : null
     return (api)
   }

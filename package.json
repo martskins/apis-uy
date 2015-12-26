@@ -51,6 +51,7 @@
     "react-transform-hmr": "^1.0.1",
     "redux-devtools": "^2.1.5",
     "redux-mock-store": "0.0.4",
+    "sinon": "^1.17.2",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.4.2",
     "tap-spec": "^4.1.1",
