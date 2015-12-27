@@ -2,8 +2,8 @@ language: node_js
 node_js:
 - "0.12"
 script: npm run test
-skip_cleanup: true
 deploy:
+  skip_cleanup: true
   provider: script
   script: npm run deploy
   on:
