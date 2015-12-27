@@ -2,6 +2,10 @@ language: node_js
 node_js:
 - "0.12"
 script: npm run test
+env:
+  global:
+  - GH_REF: github.com/cherta/apis-uy.git
+  - secure: "JaHlyNIoY1s99vP5ZzWMVv5U73HrhxtUuPxuMQ8IFo+SHXBIp4Nfa8HMxutlSHZrSo4bxurs4cfCqM2CVur+rK5+bKi1M1CRJ3PtLjaZLyuvvtfB5T/bZDtlkbn/kYdVt/6A2CCpWYY0YegPUm1amDXm5n7ysy8VSpgitOHUgcB6EYs0H2iLDKqB6wD4WTrcox92iUpvorNDScCK3lXmjA2exDifFQWy3FoetPh4FS8oS41IX5SRzh8EVZxS+5OekeT2VmJApDWDifuGACTfpHu+TdkV+LUuQzuhxLEMxYezA76Gv+v+w83q9FWE9tK7QR+vfDlblDwIAEQls9KW6T6T1knu2jhV3pQXjiHHlTqyoZhhTSrqL9/yqT8D2137OreXStrru7VXlpua9gLA44MyblQTnxKhZ736ic6lyCNFpn1W8T0q6Uz3ucTZFFcHI3N27nC1qFXbSDn1J5p27Qot9V46tz4g2nqkA2FO3BZdLeAAiWyqHc9+gvFSo8vWbdCtf1BVR72aK8XyzWtdai1Jb2Bri7g4OEmDrBc/JvG+soKilD/4MkN/UVOdq6iRDUih/SOxjn18K5Z2TjzYCLSPwna/9HIU0pcEJFKXLuQ5WQ3OVhyvIM6uRk/tlSOLI+0MxQCiSshD4HYq4Z+8frkAN3Mc70hCpCjcMuXlT88="
 deploy:
   skip_cleanup: true
   provider: script
