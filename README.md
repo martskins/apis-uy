@@ -46,6 +46,6 @@ previous instructions and add a new entry on
 
 Once you test your repo locally and everything is working submit a pull request.
 
-## How to deploy it?
+## Deploy?
 
-The deploy is really simple, just run `npm run deploy` this will generate a `dist` folder and commit the files to the `gh-pages` branch. The public site can be found at: [http://cherta.github.io/apis-uy](http://cherta.github.io/apis-uy).
+Travis-CI automatically deploys the app when pushing to `master` and all tests pass.

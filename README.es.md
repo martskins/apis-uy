@@ -44,6 +44,9 @@ nueva entrada en [src/config/services.js](src/config/services.js)
 
 Una vez testeado el resultado manda run pull request a este repo.
 
-## Cómo hacer deploy
+## Deploy
 
-Hacer deploy es relativamente fácil, hay que correr el script `npm run deploy` este genera un directorio `dist` y commitea los contenidos al branch `gh-pages`. El sitio público se encuentra en: [http://cherta.github.io/apis-uy](http://cherta.github.io/apis-uy).
+
+## Deploy?
+
+Los deploys se hacen automáticamente cuando Travis-CI ejecuta los tests, estos no fallan y el push es en el branch `master`.
