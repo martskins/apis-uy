@@ -30,7 +30,7 @@ test('SHOW_DEFINITION action correctly selects the service', function (t) {
 
 test('UPDATE_PARAM_VALUE action correctly updates the param value', function (t) {
   t.plan(1);
-  const state = { list: [{id: 1, params: [{name: 'A', value: 'B'}]}], current: null }
+  const state = { list: [{id: 1, params: [{name: 'A', value: 'B'}]}] }
   const action = { type: 'UPDATE_PARAM_VALUE', serviceId: 1, name: 'A', value: 'C' }
   const nextState = reducer(state, action)
   const param = getOne(getOne(nextState.list, 'id', 1).params, 'name', 'A')
@@ -39,7 +39,7 @@ test('UPDATE_PARAM_VALUE action correctly updates the param value', function (t)
 
 test('UPDATE_PARAM_VISIBILITY action correctly updates the visibility', function (t) {
   t.plan(1);
-  const state = { list: [{id: 1, params: [{name: 'A', disabled: false}]}], current: null }
+  const state = { list: [{id: 1, params: [{name: 'A', disabled: false}]}] }
   const action = { type: 'UPDATE_PARAM_VISIBILITY', serviceId: 1, name: 'A' }
   const nextState = reducer(state, action)
   const param = getOne(getOne(nextState.list, 'id', 1).params, 'name', 'A')
