@@ -17,11 +17,16 @@ Este listado pretende juntar todas esas API's que están dando vueltas y dar una
 * Instalar dependencuas: `npm install`
 * Correr el dev server: `npm run dev`
 
-## Cómo listar mi API
+## Como agregar mi API
 
-Agregar una API es bastante fácil, simplemente hay que hacer un fork de este
-repo, hacerlo andar localmente con las instrucciones de arriba y agregar una
-nueva entrada en [src/config/services.js](src/config/services.js)
+Agregar una API es sencillo:
+1. Hacer un fork de este repo
+2. Correr `npm install` && `npm run test`
+3. Agregar un archivo nuevo al directorio `src/config`
+4. Agregar un `require('./your-file-name')` al [src/config/services.js](src/config/services.js)
+5. Submitir el pull request
+
+### Qué significa cada atributo?
 
 ```js
 {
@@ -41,10 +46,6 @@ nueva entrada en [src/config/services.js](src/config/services.js)
   "result": null //Leave this null for now
 }
 ```
-
-Una vez testeado el resultado manda run pull request a este repo.
-
-## Deploy
 
 
 ## Deploy?

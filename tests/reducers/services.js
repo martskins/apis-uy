@@ -45,3 +45,39 @@ test('UPDATE_PARAM_VISIBILITY action correctly updates the visibility', function
   const param = getOne(getOne(nextState.list, 'id', 1).params, 'name', 'A')
   t.equals(param.disabled, true)
 });
+
+test('UPDATE_HEADER_VALUE action correctly updates the header value', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1, headers: [{name: 'A', value: 'B'}]}] }
+  const action = { type: 'UPDATE_HEADER_VALUE', serviceId: 1, name: 'A', value: 'C' }
+  const nextState = reducer(state, action)
+  const param = getOne(getOne(nextState.list, 'id', 1).headers, 'name', 'A')
+  t.equals(param.value, 'C')
+});
+
+test('UPDATE_HEADER_VISIBILITY action correctly updates the visibility', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1, headers: [{name: 'A', disabled: false}]}] }
+  const action = { type: 'UPDATE_HEADER_VISIBILITY', serviceId: 1, name: 'A' }
+  const nextState = reducer(state, action)
+  const param = getOne(getOne(nextState.list, 'id', 1).headers, 'name', 'A')
+  t.equals(param.disabled, true)
+});
+
+test('QUERYING_SERVICE action correctly updates the service result', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1, result: null}] }
+  const action = { type: 'QUERYING_SERVICE', serviceId: 1 }
+  const nextState = reducer(state, action)
+  const service = getOne(nextState.list, 'id', 1)
+  t.equals(service.result, 'loading')
+});
+
+test('SHOW_RESULT action correctly updates the service result', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1, result: null}] }
+  const action = { type: 'SHOW_RESULT', serviceId: 1, jsonResponse: { key: 'value', list: [1,2,3] } }
+  const nextState = reducer(state, action)
+  const service = getOne(nextState.list, 'id', 1)
+  t.deepEqual(service.result, { key: 'value', list: [1,2,3] })
+});
