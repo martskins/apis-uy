@@ -21,9 +21,14 @@ developers to test other developers API's without needing to use `curl`,
 
 ## How to list my API
 
-Adding an API is fairly easy just fork this repo, make it work locally using the
-previous instructions and add a new entry on
-[src/config/services.js](src/config/services.js).
+Adding an API is fairly easy, just:
+1. Fork this repo
+2. `npm install` && `npm run test`
+3. Add a new file to the `src/config` folder
+4. Add a `require('./your-file-name')` to [src/config/services.js](src/config/services.js)
+5. Submit a pull request
+
+### What each field means
 
 ```js
 {
@@ -43,8 +48,6 @@ previous instructions and add a new entry on
   "result": null //Leave this null for now
 }
 ```
-
-Once you test your repo locally and everything is working submit a pull request.
 
 ## Deploy?
 
