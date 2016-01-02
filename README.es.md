@@ -32,7 +32,9 @@ Agregar una API es sencillo:
 {
   "id": 2, //Subsecuent id
   "name": "Tipo de Cambio", //Name that appears on the left navigation bar and as a title of the service
-  "description": "Lorem Ipsum", //Description that appears on below the title
+  "description": `
+Esta API devuelve la cotización actual basada en el sitio del [Banco Central del Uruguay](http://www.bcu.gub.uy/Paginas/Default.aspx).
+  `, //Description in md format that appears below the title, beware with spaces because it will understand them as a code block and add a pre to it
   "slug": "currency", //The url slug (not in use now)
   "url": "http://webservice.solcre.com/cotizacion", //The API url
   "type": "jsonp", //The API request type, can be `jsonp` or `rest`
@@ -45,7 +47,6 @@ Agregar una API es sencillo:
   "method": "GET", //The API HTTP method
   "result": null //Leave this null for now
 }
-```
 
 
 ## Deploy?
