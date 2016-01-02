@@ -7,7 +7,6 @@ export default class Information extends Component {
 
   render() {
     const { title, description, url } = this.props
-    console.log(description.replace('\n', '').trim())
     return (
       <div>
         <h2 className="title">{title}</h2>

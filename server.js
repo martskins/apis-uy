@@ -1,24 +1,20 @@
-var webpackDevMiddleware = require('webpack-dev-middleware')
-var webpackHotMiddleware = require('webpack-hot-middleware')
+var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config')
 var webpack = require('webpack')
-var express = require('express')
-var app = new express()
 var port = 3000
 
 var compiler = webpack(config)
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
-app.use(express.static('public'))
 
-app.get("*", function(req, res) {
-  res.sendFile(__dirname + '/index.html')
+var server = new WebpackDevServer(compiler, {
+  publicPath: config.output.publicPath,
+  hot: true,
+  historyApiFallback: true
 })
 
-app.listen(port, function(error) {
-  if (error) {
-    console.error(error)
+server.listen(port, 'localhost', function (err, result) {
+  if (err) {
+    console.log(err)
   } else {
     console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
   }
-})
+});

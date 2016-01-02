@@ -2,5 +2,5 @@ export default {
   "list": [
     require('./tipo-cambio').default
   ],
-  "current": null
+  "current": "1"
 }
