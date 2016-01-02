@@ -5,9 +5,10 @@ var rupture = require('rupture')
 var jeet = require('jeet')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './src/index'
   ],
   output: {
@@ -15,9 +16,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       process: { env: { NODE_ENV: JSON.stringify(process.env.NODE_ENV) } }
     })
@@ -28,7 +27,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel',
+      loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
     },
     {
