@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Markdown from 'react-remarkable'
 import { TextField, Styles } from 'material-ui'
 const { Colors } = Styles
 
@@ -6,11 +7,14 @@ export default class Information extends Component {
 
   render() {
     const { title, description, url } = this.props
+    console.log(description.replace('\n', '').trim())
     return (
       <div>
         <h2 className="title">{title}</h2>
 
-        <p>{description}</p>
+        <Markdown options={{breaks: true, typographer:  true, html: true}}>
+          {description.replace('\n', '').trim()}
+        </Markdown>
 
         <TextField
           floatingLabelText="URL del Servicio"
