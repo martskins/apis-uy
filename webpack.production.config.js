@@ -9,13 +9,19 @@ module.exports = {
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist', 'static'),
     filename: 'bundle.js'
   },
   stylus: {
     use: [rupture(), jeet()]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
     new webpack.DefinePlugin({
       NODE_ENV: process.env.NODE_ENV
     })

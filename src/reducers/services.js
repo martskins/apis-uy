@@ -2,6 +2,10 @@ import initialState from '../config/services'
 
 export default function services (state = initialState, action) {
   switch(action.type) {
+    case '@@reduxReactRouter/routerDidChange':
+      if(isNavigatingToServiceDetail(action)) {
+        return {...state, current: Number(action.payload.params.serviceId)}  
+      }
     case 'SHOW_DEFINITION':
       return {...state, current: action.serviceId}
     case 'UPDATE_PARAM_VALUE':
@@ -93,4 +97,10 @@ function headers (state, action) {
     default:
       return state
   }
+}
+
+function isNavigatingToServiceDetail (action) {
+  return action.payload &&
+    action.payload.params &&
+    action.payload.params.serviceId
 }
