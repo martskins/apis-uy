@@ -2,13 +2,10 @@ language: node_js
 node_js:
 - "0.12"
 script: npm run test
-env:
-  global:
-  - GH_REF: github.com/cherta/apis-uy.git
-  - secure: "qYmBkiC0Wm3Js+dF32AROZjEQ5QAPLdA/jw39rgDChXUGAhctdE/dN0Rz1ZHk4Ypqo5e+V/O/rHJ8rdLjgyeHtgR37pVQwENLHwAEVL+hHbs+I9SjRtH7OgLur/pwVS8CkHbTTuo4rrcpmgofxWBaWLsbDBdO9oraS7KAeB/orRPkMUG2a8W/DBewKrLNVuJSlS1Td/KUdoGYbKBU1803VDDHp3r10vWY1n9xUkzb2Fj6IwPol0aEqV2j2qUOi6VxTRmwolurO/cXOiqxJqaRvOXagov+pQEkKK4YA7ngDQMaMRLXEopvKxNDdiVofR+noNiGCY0cybu3WO52ZimKwgAqaYQ5rN08ho3MfSnOJa1ToldWfyUlVsuYmFowMymX9uq2ynJAZRd2D+qsj2pAvhyuHZHO4n4JwA9WIrPqIb8S62AyBctLmQ2zR54ZM63mkQ1+hAN9GSXH1OGFOvzEl8ck0FwT029WQmmjHPLZmQ6sFiqXzHpviux5aC4inSbf2v3SWBulGUC+aWf+1JgV+dZ2ct56/A9fgnJnNg3OQVVC8BcG1Ess2MV1Z061L0FGlN8TxvtDYdKGiaWopf0KJPFb5+ER3rQUXXZtvanWQBY7hbztks9YmN4USXjVtmauXAs6+J0p+OuQ3ZEo9mE/iy4IYjaUK39LTYytIVPxzA="
 deploy:
+  provider: heroku
   skip_cleanup: true
-  provider: script
-  script: npm run deploy
+  before_deploy: npm run build
+  api_key: NAdomV9c4ZSj4BMhJZLplPbGEu6+cYK7YMuWitd9Sw5CSNdMc/TqJoI2QjncVdWoV0mry4+LU+CKHsljYMsFxWe0JAJ7h0hKbyghK8iRwziaqHnvYJWZpnO+jeCdU/TFrfF44xI9+C9nwZvtd5I7tMh8C/69U3fIJlwDB53v+SDEsoXBkk+wWN9RgpcG9Ant2+7IkbZM95CJqU2604tACNVVoRF0b6Kb3tsWJ+Sf+sVshDf2l5XxoiHq8jijn+pwwI8CooZgtjyHWdByHAq8WMI081r9e7qWqN5LqDjJ4uf3S7CmWCiNgMjzdTJVm+z9jKJt5wSj1X2QZSBjtLGtPdpOVlxN6WsX0bntvXfkP66VbR3TrA7jgNsS/RBjQlnk8InRGW6tH+zOtj+UhoEsMErdTtnzBkYDF+yLcoGWwJYwQN3H1qg8PseIcjepgJFtF0sZMnWbZ0KQSArKJGygzhKjiokmE2hLYp5qowz48EexejxTWlrbAkxA9hhNMGFZJJFWqBU7GP0dUaMO9zcC8GUCp97NMWV4Wm5D2oVeAGd3LwRui2ymiK+pX2nfq93FaPTAEOGaelfVWm/+WbEKZuiRtYxB5pxDF5CPO/W9iAkm8sgdBtQESiZRYXHqvlnc6VusNnINJ7lQrcIjEhqk5MHtoh+RBuMMd29avXPn7yI=
   on:
-    branch: master
+    branch: add-url-support
