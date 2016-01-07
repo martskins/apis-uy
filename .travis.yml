@@ -2,11 +2,11 @@ language: node_js
 node_js:
 - '0.12'
 script: npm run test
+before_deploy: npm run build
 deploy:
   provider: heroku
   app: apis-uy
   skip_cleanup: true
-  before_deploy: npm run build
   on:
     branch: add-url-support
   api_key:
