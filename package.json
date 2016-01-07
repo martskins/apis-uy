@@ -7,7 +7,6 @@
     "dev": "NODE_ENV=development node dev-server.js",
     "start": "NODE_ENV=production node prod-server.js",
     "build": "NODE_ENV=production node scripts/build.js",
-    "deploy": "NODE_ENV=production scripts/deploy.sh",
     "test": "NODE_ENV=test node_modules/babel-cli/bin/babel-node.js tests/index.js | tap-spec"
   },
   "repository": {

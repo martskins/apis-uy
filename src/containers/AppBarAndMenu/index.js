@@ -55,7 +55,7 @@ class AppBarAndMenu extends Component {
           this.refs.leftNav.toggle()
         }}
         iconElementLeft={showMenu
-          ? <IconButton iconClassName="material-icons">home</IconButton>
+          ? <IconButton iconClassName="material-icons" onTouchTap={() => pushState('/')}>home</IconButton>
           : null}/>
     )
     return(
