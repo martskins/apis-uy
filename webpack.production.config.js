@@ -9,7 +9,7 @@ module.exports = {
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist', 'static'),
+    path: path.join(__dirname, 'public', 'static'),
     filename: 'bundle.js'
   },
   stylus: {
