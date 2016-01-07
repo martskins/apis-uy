@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AppBarAndMenu from '../components/AppBarAndMenu'
+import AppBarAndMenu from './AppBarAndMenu'
 import styles from './style.styl'
 
 export default class Root extends Component {

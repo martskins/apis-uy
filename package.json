@@ -4,9 +4,9 @@
   "description": "A web interface to show and test uruguayan api's",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development node server.js",
+    "dev": "NODE_ENV=development node dev-server.js",
+    "start": "NODE_ENV=production node prod-server.js",
     "build": "NODE_ENV=production node scripts/build.js",
-    "deploy": "NODE_ENV=production scripts/deploy.sh",
     "test": "NODE_ENV=test node_modules/babel-cli/bin/babel-node.js tests/index.js | tap-spec"
   },
   "repository": {
@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.1",
-    "history": "1.13.1",
+    "history": "^1.17.0",
     "jeet": "^6.1.2",
     "material-ui": "^0.13.4",
     "react": "^0.14.3",
@@ -25,11 +25,14 @@
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.2",
     "react-remarkable": "^1.1.1",
+    "react-router": "^1.0.3",
     "react-tap-event-plugin": "^0.2.1",
     "redux": "^3.0.5",
+    "redux-router": "^1.0.0-beta7",
     "redux-thunk": "^1.0.2",
     "reqwest": "^2.0.5",
-    "rupture": "^0.6.1"
+    "rupture": "^0.6.1",
+    "express": "^4.13.3"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
@@ -41,7 +44,6 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
     "css-loader": "^0.23.0",
-    "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.1",
     "fs-extra": "^0.26.2",
     "jsdom": "^7.0.2",

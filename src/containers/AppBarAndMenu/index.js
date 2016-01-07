@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as ServiceActions from '../../actions/services'
 import { AppBar, List, ListItem, IconButton, FontIcon, LeftNav } from 'material-ui'
+import { pushState } from 'redux-router'
 import style from './style.styl'
 
 class AppBarAndMenu extends Component {
@@ -25,19 +26,15 @@ class AppBarAndMenu extends Component {
     this.setState({ showMenu: window.innerWidth > this.props.hideBreakPoint })
   }
 
-  navigate(path){
-    this.props.history.pushState(null, path)
-  }
-
   render() {
     const { showMenu } = this.state
-    const { services, actions } = this.props
+    const { services, actions, pushState } = this.props
     const list = (
       <List className="menu">
         {services.map((service) => {
           return(
             <ListItem key={service.id}
-              onTouchTap={()=> actions.showDefinition(service.id)}
+              onTouchTap={()=> pushState(null, `/api/${service.id}`)}
               primaryText={service.name}
               leftIcon={<FontIcon className="material-icons">{service.icon}</FontIcon>}/>
           )
@@ -58,7 +55,7 @@ class AppBarAndMenu extends Component {
           this.refs.leftNav.toggle()
         }}
         iconElementLeft={showMenu
-          ? <IconButton iconClassName="material-icons">home</IconButton>
+          ? <IconButton iconClassName="material-icons" onTouchTap={() => pushState('/')}>home</IconButton>
           : null}/>
     )
     return(
@@ -78,7 +75,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(ServiceActions, dispatch)
+    actions: bindActionCreators(ServiceActions, dispatch),
+    pushState: bindActionCreators(pushState, dispatch)
   }
 }
 

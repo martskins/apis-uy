@@ -2,8 +2,8 @@ import initialState from '../config/services'
 
 export default function services (state = initialState, action) {
   switch(action.type) {
-    case 'SHOW_DEFINITION':
-      return {...state, current: action.serviceId}
+    case '@@reduxReactRouter/routerDidChange':
+      return {...state, current: current(state.current, action, state.list.map((s) => s.id))}  
     case 'UPDATE_PARAM_VALUE':
     case 'UPDATE_PARAM_VISIBILITY':
     case 'UPDATE_HEADER_VALUE':
@@ -93,4 +93,23 @@ function headers (state, action) {
     default:
       return state
   }
+}
+
+function current(state, action, availableServices) {
+  switch(action.type) {
+    case '@@reduxReactRouter/routerDidChange':      
+      const serviceId = getServiceId(action)
+      return availableServices.includes(serviceId) ? serviceId : null
+    default:
+      return state
+  }
+}
+
+function getServiceId(action) {
+  const id = action.payload &&
+    action.payload.params &&
+    action.payload.params.serviceId &&
+    Number(action.payload.params.serviceId)
+
+  return id ? id : null
 }

@@ -20,12 +20,30 @@ test('initial state starts with at least one service', function (t) {
   t.true(reducer(undefined, {}).list.length >= 1)
 });
 
-test('SHOW_DEFINITION action correctly selects the service', function (t) {
+test('the current value when navigating to a service page', function (t) {
   t.plan(1);
   const state = { list: [{id: 1}], current: null }
-  const action = { type: 'SHOW_DEFINITION', serviceId: 1 }
+  const payload = { params: { serviceId: 1 } }
+  const action = { type: '@@reduxReactRouter/routerDidChange', payload: payload }
   const nextState = reducer(state, action)
   t.equals(nextState.current, 1)
+});
+
+test('the current value when the service id is not present', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1}], current: null }
+  const action = { type: '@@reduxReactRouter/routerDidChange' }
+  const nextState = reducer(state, action)
+  t.equals(nextState.current, null)
+});
+
+test('the current value when navigating to an non existing service page', function (t) {
+  t.plan(1);
+  const state = { list: [{id: 1}], current: null }
+  const payload = { params: { serviceId: 2 } }
+  const action = { type: '@@reduxReactRouter/routerDidChange', payload: payload }
+  const nextState = reducer(state, action)
+  t.equals(nextState.current, null)
 });
 
 test('UPDATE_PARAM_VALUE action correctly updates the param value', function (t) {

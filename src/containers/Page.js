@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as ServiceActions from '../actions/services'
 import Api from '../components/Api'
+import NoMatch from '../components/NoMatch'
 
 class Page extends Component {
   render() {
@@ -21,7 +22,7 @@ class Page extends Component {
           onHeaderChange={(k, v) => actions.updateHeaderValue(service.id, k, v)}
           onHeaderToggleVisibility={k => actions.updateHeaderVisibility(service.id, k)}
           onApiRequest={() => actions.queryService(service.id)} />
-      : null
+      : <NoMatch />
     return (api)
   }
 }
